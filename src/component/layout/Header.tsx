@@ -1,29 +1,49 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { AiFillApple } from "react-icons/ai";
+import { GoSearch } from "react-icons/go";
+import { BsBag } from "react-icons/bs";
 export default function Header() {
   const [menus, setMenus] = useState(menu);
   return (
     <Root>
       <div className="navbar">
-        <div>aple</div>
+        <div className="logo">
+          <AiFillApple />
+        </div>
         {menus.map((i: any) => {
           return <div> {i.name}</div>;
         })}
-         <div>seach</div>
-      <div>cart</div> 
+        <div>
+          <GoSearch />
+        </div>
+        <div>
+          <BsBag />
+        </div>
       </div>
-     
     </Root>
   );
 }
 const Root = styled.section`
-  background: grey;
+  background: #000000cc;
   .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-}
+    gap: 32px;
+    height: 40px;
+    color:#f5f5f7;
+    & > div{
+      font-size:12px;
+    }
+    svg {
+      font-size: 14px;
+  }
+    .logo svg{
+      font-size: 20px;
+    }
+    
+  }
 `;
 
 const menu = [
