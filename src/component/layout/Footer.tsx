@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import FooterMenus from "./FooterMenus";
 export default function Footer() {
+  const [shopOpen, setShopOpen] = useState(false)
   return (
     <Root>
-      <div className="container">
+      <div className="container_box">
         <section className="top_section">
           <p>
             To access and use all the features of Apple&nbsp;Card, you must add
@@ -30,51 +32,38 @@ export default function Footer() {
         {/* Footer menu section */}
         <div className="menu_section">
           <div className="shop_learn footer_menus">
-            <h2>Shop and Learn</h2>
-            {shopLearn.map((i) => {
-              return <a href={i.link}>{i.name}</a>;
-            })}
+            <FooterMenus menu={shopLearn} title='Shop and Learn' />
           </div>
           <div className="shop_learn footer_menus">
-            <h2>Shop and Learn</h2>
-            {service.map((i) => {
-              return <a href={i.link}>{i.name}</a>;
-            })}
+            <FooterMenus menu={service} title='Service' />
+            <FooterMenus menu={account} title='Account' />
           </div>
           <div className="shop_learn footer_menus">
-            <h2>Shop and Learn</h2>
-            {appleStore.map((i) => {
-              return <a href={i.link}>{i.name}</a>;
-            })}
-            <h2>Shop and Learn</h2>
-            {appleStore.map((i) => {
-              return <a href={i.link}>{i.name}</a>;
-            })}
+            <FooterMenus menu={appleStore} title='Apple Store' />
+            
           </div>
           <div className="shop_learn footer_menus">
-            <h2>Shop and Learn</h2>
-            {appleStore.map((i) => {
-              return <a href={i.link}>{i.name}</a>;
-            })}
+            <FooterMenus menu={forbusiness} title='For Business' />
+            <FooterMenus menu={foreducation} title='For Education' />
+            <FooterMenus menu={ForHealthcare} title='For Health Care' />
+            <FooterMenus menu={ForGovernment} title='For Government' />
           </div>
           <div className="shop_learn footer_menus">
-            <h2>Shop and Learn</h2>
-            {appleStore.map((i) => {
-              return <a href={i.link}>{i.name}</a>;
-            })}
+            <FooterMenus menu={applevalues} title='Apple Values' />
+            <FooterMenus menu={aboutapple} title='About Apple' />
           </div>
         </div>
 
-        <p>More ways to shop: <a href="#">Find an Apple Store</a> or <a  href="#"> other retailer </a>
-            near you. <span className="nowrap">Or call 1-800-MY-APPLE.</span>
-          </p>
+        <p>More ways to shop: <a href="#">Find an Apple Store</a> or <a href="#"> other retailer </a>
+          near you. <span className="nowrap">Or call 1-800-MY-APPLE.</span>
+        </p>
         <hr />
         {/* Footer bottom section */}
         <div className="bottom_section">
           <p>Copyright © 2022 Apple Inc. All rights reserved.</p>
           <p className="bottom_menu">
-            {bottomFooter.map((i)=>{
-              return(
+            {bottomFooter.map((i) => {
+              return (
                 <a href='#'>{i.name}</a>
               )
             })}
@@ -87,6 +76,12 @@ export default function Footer() {
 }
 const Root = styled.section`
   background: #f1f1f3;
+  .container_box{
+    max-width: 980px;
+    margin: 0 auto;
+    width:100%;
+    padding: 20px;
+  }
    p {
     font-size: 12px;
     color:#6e6e73;
@@ -95,9 +90,12 @@ const Root = styled.section`
   }
   a{
     color:#6e6e73;
+    text-decoration:none;
+  }
+  a:hover{
+    text-decoration: underline;
   }
   .top_section{
-    
     a:hover{
       text-decoration: underline;
     }
@@ -105,13 +103,8 @@ const Root = styled.section`
   section.top_section {
     margin: 20px 0px;
 }
-  .menu_section {
-    margin:20px 0px;
-  }
-
   .footer_menus {
     display: flex;
-    gap: 10px;
     flex-direction: column;
     h2{
       font-size: 12px;
@@ -125,11 +118,18 @@ const Root = styled.section`
   }
   .menu_section {
     display: grid;
+    margin:20px 0px;
     grid-template-columns: repeat(5, 1fr);
+    @media(max-width:768px){
+      grid-template-columns:1fr;
+    }
 }
 .bottom_section {
   display: flex;
   justify-content: space-between;
+  @media(max-width:768px){
+    flex-direction: column;
+  }
 }
 p.bottom_menu {
   display: flex;
@@ -137,13 +137,14 @@ p.bottom_menu {
 .bottom_menu a {
   border-right: 1px solid #adadad;
   padding: 0px 10px;
+  @media(max-width:768px){
+    padding:0px;
+  }
 }
 .bottom_menu a:last-child{
   border:none;
 }
-`;
-
-
+`
 const bottomFooter =[
   {
     id:1,
@@ -169,104 +170,109 @@ const bottomFooter =[
 const appleStore = [
   {
     id: 1,
-    name: "Store",
+    name: "Find A Store",
     link: "#",
   },
   {
     id: 2,
-    name: "Mac",
+    name: "Genius Bar",
     link: "#",
   },
   {
     id: 3,
-    name: "iPad",
+    name: "Today at Apple",
     link: "#",
   },
   {
     id: 4,
-    name: "iPhone",
+    name: "Apple Camp",
     link: "#",
   },
   {
     id: 5,
-    name: "Watch",
+    name: "Apple Store App",
     link: "#",
   },
   {
     id: 6,
-    name: "AirPods",
+    name: "Refurbished and Clearance",
     link: "#",
   },
   {
     id: 7,
-    name: "TV & Home",
+    name: "Financing",
     link: "#",
   },
   {
     id: 8,
-    name: "AirTag",
+    name: "Apple Trade In",
     link: "#",
   },
   {
     id: 9,
-    name: "Accessories",
+    name: "Order Status",
     link: "#",
   },
   {
     id: 10,
-    name: "Gift Cards",
+    name: "Shoping Help",
     link: "#",
   },
 ];
 const service = [
   {
     id: 1,
-    name: "Store",
+    name: "Apple Music",
     link: "#",
   },
   {
     id: 2,
-    name: "Mac",
+    name: "Apple Tv+",
     link: "#",
   },
   {
     id: 3,
-    name: "iPad",
+    name: "Apple Fitness+",
     link: "#",
   },
   {
     id: 4,
-    name: "iPhone",
+    name: "Apple News+",
     link: "#",
   },
   {
     id: 5,
-    name: "Watch",
+    name: "Apple Arcade",
     link: "#",
   },
   {
     id: 6,
-    name: "AirPods",
+    name: "iCloud",
     link: "#",
   },
   {
     id: 7,
-    name: "TV & Home",
+    name: "Apple One",
     link: "#",
   },
   {
     id: 8,
-    name: "AirTag",
+    name: "Apple Card",
     link: "#",
   },
   {
     id: 9,
-    name: "Accessories",
+    name: "Apple Books",
     link: "#",
   },
   {
     id: 10,
-    name: "Gift Cards",
+    name: "Apple Podcasts",
+    link: "#",
+  },
+  {
+    id: 11,
+    name: "Apple Store",
     link: "#",
   },
 ];
@@ -322,3 +328,154 @@ const shopLearn = [
     link: "#",
   },
 ];
+const forbusiness = [
+  {
+    id: 1,
+    name: "Apple and Business",
+    link: "#",
+  },
+  {
+    id: 1,
+    name: "Shop for Business",
+    link: "#",
+  },
+  
+]
+const foreducation = [
+  {
+    id: 1,
+    name: "Apple and Education",
+    link: "#",
+  },
+  {
+    id: 2,
+    name: "Shop for k-12",
+    link: "#",
+  },
+  {
+    id: 3,
+    name: "Shop for College",
+    link: "#",
+},
+]
+  const ForHealthcare = [
+    {
+      id: 1,
+      name: "Apple in Healthcare",
+      link: "#",
+    },
+    {
+      id: 2,
+      name: "Health on Apple Watch",
+      link: "#",
+    },
+    {
+      id: 3,
+      name: "Health Records on iphone",
+      link: "#",
+    },
+]
+const ForGovernment = [
+  {
+    id: 1,
+    name: "Shop for Government",
+    link: "#",
+  },
+  {
+    id: 2,
+    name: "Shop for Veternans and Military",
+    link: "#",
+  },
+  
+]
+const account = [
+  {
+    id: 1,
+    name: "Manage Your Apple ID",
+    link: "#",
+  },
+  {
+    id: 2,
+    name: "Apple Store Account",
+    link: "#",
+  },
+  {
+    id: 3,
+    name: "iCloud.com",
+    link: "#",
+  },
+  
+]
+const applevalues = [
+  {
+    id: 1,
+    name: "Accessibility",
+    link: "#",
+  },{
+    id: 2,
+    name: "Education",
+    link: "#",
+  },
+  {
+    id: 3,
+    name: "Environment",
+    link: "#",
+  },
+  {
+    id: 4,
+    name: "Inclusion and Diversity",
+    link: "#",
+  },
+  {
+    id: 5,
+    name: "Privacy",
+    link: "#",
+  },
+  {
+    id: 6,
+    name: "Recial Equity and Justice",
+    link: "#",
+  },
+  {
+    id: 7,
+    name: "Supplier Responsibility",
+    link: "#",
+  },
+]
+const aboutapple = [
+  {
+    id: 1,
+    name: "Newsroom",
+    link: "#",
+  },
+  {
+    id: 2,
+    name: "Apple Leadership",
+    link: "#",
+  },
+  {
+    id: 3,
+    name: "Career Oppurtunities",
+    link: "#",
+  },
+  {
+    id: 4,
+    name: "Investors",
+    link: "#",
+  },
+  {
+    id: 5,
+    name: "Ethics & Compliance",
+    link: "#",
+  },
+  {
+    id: 6,
+    name: "Events",
+    link: "#",
+  },
+  {
+    id: 7,
+    name: "Contact Apple",
+    link: "#",
+  },
+]

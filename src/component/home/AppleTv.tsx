@@ -28,6 +28,8 @@ position: relative;
     object-fit: cover;
   }
   .content_section {
+    padding:10px;
+    width:100%;
     text-align: center;
     position: absolute;
     bottom: 20px;
