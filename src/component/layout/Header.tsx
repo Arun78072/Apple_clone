@@ -45,6 +45,10 @@ export default function Header() {
 }
 const Root = styled.section`
   background: #000000cc;
+  position: sticky;
+    top: 0px;
+    z-index: 9;
+    backdrop-filter: blur(5px);
   .navbar {
     display: flex;
     align-items: center;
@@ -67,13 +71,14 @@ const Root = styled.section`
   }
   .mobile_menu{
     color: #f5f5f7;
-    padding:10px;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
     z-index: 9;
     overflow: hidden;
     position: absolute;
     top: 0px;
-    background: #272727;
+    background: #000000cc;
+    backdrop-filter: blur(5px);
+    // background: #272727;
     width: 100%;
     display:none;
     @media(max-width:786px){

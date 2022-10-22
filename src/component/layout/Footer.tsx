@@ -133,13 +133,11 @@ const Root = styled.section`
 }
 p.bottom_menu {
   display: flex;
+  flex-wrap: wrap;
 }
 .bottom_menu a {
   border-right: 1px solid #adadad;
   padding: 0px 10px;
-  @media(max-width:768px){
-    padding:0px;
-  }
 }
 .bottom_menu a:last-child{
   border:none;
