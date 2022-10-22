@@ -16,21 +16,23 @@ export default function FooterMenus({ menu, title }: any) {
     )
 }
 const Root = styled.section`
-    @media(max-width:786px){
+margin-top:20px;
+    @media(max-width:768px){
+        margin-top:0px;
         padding: 10px 0px;
         border-bottom: 1px solid #818181bf; 
     }
     h2{
+        margin:0px 0px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         svg{
             display: none;
-            @media(max-width:786px){
+            @media(max-width:768px){
                 display: block;
-                }
+            }
         }
-        
     }
    .menus a{
     display: block;

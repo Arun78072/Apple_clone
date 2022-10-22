@@ -3,7 +3,9 @@ import { FiChevronRight } from 'react-icons/fi'
 function IpadPro() {
   return (
     <Root>
-      <img src='/images/image2.jpg' alt='loding...' />
+      <img src='/images/image2.jpg' alt='loding...' className="desktop_view"/>
+
+      <img src='/images/ipadPro.png' alt='loding...'className="tablet_view"/>
       <div className="content_box">
         <h2 className="headline">iPad Pro</h2>
         <h3 className="m1chip">Supercharged by <img src='/images/m2chip.png' /></h3>
@@ -31,17 +33,24 @@ margin:10px 0px;
       object-fit: cover;
       @media (max-width:1024px){
         margin: 50px 0px 0px 0px;
-        transform: translateX(-110px);
       }
-      @media (max-width:786px){
-        transform: translateX(0px);
-      }
+      
       @media (max-width:450px){
-        transform: translate(-56px, 58px);
         height: 300px;
         margin-top: 100px;
       }
   }
+.desktop_view{
+  @media(max-width:1024px){
+    display:none;
+  }
+}
+.tablet_view{
+  display:none;
+  @media(max-width:1024px){
+    display:block;
+  }
+}
 .content_box{
   text-align:center;
   top:50%;

@@ -13,6 +13,17 @@ h3.subhead {
   font-size: 28px;
   font-weight: 400;
 }
+a.primary_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta_links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 @media (max-width:450px){
   h2.headline{
     font-size: 36px;
