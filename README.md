@@ -47,3 +47,13 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 # totalitycorp
 # totalitycorp
 # totalitycorp
+
+
+# About this project folder structure 
+- I create a folder for all the parent pages 
+- Create a folder for the local fonts
+- Create a folder for all the components
+- inside this component folder I create two different folder home for the home page components and layout for the header and fotter 
+- I basically wrap the all the pages inside this layout component
+
+- And i use styled component for styling the css
